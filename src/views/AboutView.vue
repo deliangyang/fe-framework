@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Form from '@/components/Form.vue'
 import { Field } from '@/domains/form'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { testPost } from '@/api/test'
 
 const form = ref<Record<string, any>>({

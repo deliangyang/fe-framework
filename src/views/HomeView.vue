@@ -3,6 +3,9 @@ import Table from '@/components/Table.vue'
 import { Row, Operator } from '@/domains/rows';
 import { TableColumnCtx } from 'element-plus/es/components/table/src/table-column/defaults';
 import { ref } from 'vue'
+import { EventBus } from '@/domains/event_bus'
+import { ElButton } from 'element-plus'
+import EmitTest from '@/components/EmitTest.vue'
 
 interface User {
   name: string
@@ -68,10 +71,17 @@ const operators = ref<Operator<User>[]>([
     },
   }
 ])
+
+const handleSendMessage = () => {
+  EventBus.emit('test', 'hello world')
+}
 </script>
 
 <template>
   <div class="home">
+    <el-button @click="handleSendMessage">click send message</el-button>
+    <EmitTest />
+    <router-link to="/about">go to /about</router-link>
     <Table :data="data" :rows="rows" :operators="operators" :total="1000" />
   </div>
 </template>
