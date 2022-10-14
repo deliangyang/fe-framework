@@ -1,6 +1,14 @@
-import { Options } from "element-plus"
 
-type FieldType = 'select' | 'input' | 'textarea' | 'switch' | 'checkbox' | 'radio'
+type FieldType = 'select' 
+  | 'input' 
+  | 'textarea' 
+  | 'switch' 
+  | 'checkbox' 
+  | 'radio'
+  | 'file'      // todo
+  | 'files'
+  | 'datetime'
+  | 'timepick'
 
 // Option 选项
 type Option = {
@@ -16,3 +24,6 @@ export interface Field {
   type: FieldType,
   options?: Option[],
 }
+
+// handlerSubmit 提交表单
+export type handlerSubmit = (form: any) => void

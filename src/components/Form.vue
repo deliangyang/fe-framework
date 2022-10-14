@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { Field } from '@/domains/form';
+import { Field, handlerSubmit } from '@/domains/form';
 import { PropType } from 'vue';
 import {
   ElForm, ElFormItem, ElButton, ElInput, ElSelect, ElSwitch, ElOption,
@@ -14,11 +14,15 @@ let props = defineProps({
   },
   fields: {
     type: Array<Field>,
-  }
+  },
+  submit: {
+    type: Function as PropType<handlerSubmit>,
+    required: true,
+  },
 })
 
 const onSubmit = () => {
-  console.log(props.form)
+  props.submit(props.form)
 }
 </script>
 

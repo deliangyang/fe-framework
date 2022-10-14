@@ -2,6 +2,7 @@
 import Form from '@/components/Form.vue'
 import { Field } from '@/domains/form'
 import { ref } from 'vue'
+import { testPost } from '@/api/test'
 
 const form = ref<Record<string, any>>({
   aaa: 1,
@@ -70,10 +71,19 @@ const fields = ref<Field[]>([
   },
 ])
 
+const handlerSubmit = (form: any) => {
+  console.log(form)
+  testPost(form).then((res) => {
+    console.log(res)
+  }).catch(err => {
+    console.log(err)
+  })
+}
+
 </script>
 
 <template>
   <div class="about">
-    <Form :fields="fields" :form="form" />
+    <Form :fields="fields" :form="form" :submit="handlerSubmit" />
   </div>
 </template>
