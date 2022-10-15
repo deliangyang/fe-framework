@@ -71,7 +71,7 @@ const fields = ref<Field[]>([
   },
 ])
 
-const handlerSubmit = (form: any) => {
+const handleSubmit = (form: any) => {
   console.log(form)
   testPost(form).then((res) => {
     console.log(res)
@@ -84,6 +84,6 @@ const handlerSubmit = (form: any) => {
 
 <template>
   <div class="about">
-    <Form :fields="fields" :form="form" :submit="handlerSubmit" />
+    <Form :fields="fields" :form="form" :submit="handleSubmit" />
   </div>
 </template>

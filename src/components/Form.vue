@@ -52,6 +52,7 @@ const onSubmit = () => {
         </el-radio-group>
 
         <el-input v-if="field.type === 'textarea'" type="field.type" v-model="props.form[field.prop]" :placeholder="field.placeholder" />
+        <el-input v-if="field.type === 'password'" type="field.type" v-model="props.form[field.prop]" :placeholder="field.placeholder" show-password />
 
       </el-form-item>
     </template>

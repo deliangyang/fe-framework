@@ -5,6 +5,7 @@ type FieldType = 'select'
   | 'switch' 
   | 'checkbox' 
   | 'radio'
+  | 'password'
   | 'file'      // todo
   | 'files'
   | 'datetime'
